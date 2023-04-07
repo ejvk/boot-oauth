@@ -13,7 +13,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class AppConfig {
 
     @Bean
-    SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests().anyRequest().authenticated().and().oauth2Login();
         return http.build();
     }

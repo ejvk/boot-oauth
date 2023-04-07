@@ -4,13 +4,21 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
+@Slf4j
 public class BasicController {
 
     @GetMapping("/")
     public String main(OAuth2AuthenticationToken token) {
-        System.out.println("controller hit...");
+        log.info(token.toString());
         return token.getPrincipal().getAttributes().toString();
+    }
+    
+    @GetMapping("/unauthenticated")
+    public String unAuthenticated() {
+        return "hi unauthenticated";
     }
 
 }
