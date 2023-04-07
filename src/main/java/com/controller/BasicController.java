@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
+import net.minidev.json.JSONObject;
 
 @RestController
 @Slf4j
@@ -14,6 +15,11 @@ public class BasicController {
     public String main(OAuth2AuthenticationToken token) {
         log.info(token.toString());
         return token.getPrincipal().getAttributes().toString();
+    }
+    
+    @GetMapping("/authenticated")
+    public String authenticated() {
+        return "success!!!";
     }
     
     @GetMapping("/unauthenticated")
