@@ -6,12 +6,8 @@ spring.security.oauth2.client.registration.github.client-secret=
 spring.security.oauth2.client.registration.google.client-id=
 spring.security.oauth2.client.registration.google.client-secret=
 
-#spring.security.oauth2.client.registration.okta.client-id=
-#spring.security.oauth2.client.registration.okta.client-secret=
-#spring.security.oauth2.client.provider.okta.issuer-uri=
-
-#okta.oauth2.issuer=https://dev-72327715.okta.com/oauth2/default
-#okta.oauth2.client-id=
-#okta.oauth2.client-secret=
-#okta.oauth2.redirect-uri=/
-#okta.oauth2.audience=api://default
+spring.security.oauth2.client.registration.okta.client-id=
+spring.security.oauth2.client.registration.okta.client-secret=
+spring.security.oauth2.client.registration.okta.scope=openid,profile
+spring.security.oauth2.client.provider.okta.issuer-uri=https://<your okta domain>/oauth2/default
+#note: ensure the okta redirect URI (okta url -> Applications) is set to http://localhost:8080/login/oauth2/code/okta
