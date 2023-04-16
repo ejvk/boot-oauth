@@ -11,3 +11,17 @@ spring.security.oauth2.client.registration.okta.client-secret=
 spring.security.oauth2.client.registration.okta.scope=openid,profile
 spring.security.oauth2.client.provider.okta.issuer-uri=https://<your okta domain>/oauth2/default
 #note: ensure the okta redirect URI (okta url -> Applications) is set to http://localhost:8080/login/oauth2/code/okta
+
+
+#The below was used with a locally running KeyCloak server.  Be sure to add the client secret.
+spring.security.oauth2.client.registration.mywebclient.client-id = evkclientmvc
+spring.security.oauth2.client.registration.mywebclient.client-secret = 
+spring.security.oauth2.client.registration.mywebclient.scope = openid, profile, roles
+spring.security.oauth2.client.registration.mywebclient.authorization-grant-type = authorization_code
+spring.security.oauth2.client.registration.mywebclient.redirect-uri = http://localhost:8080/login/oauth2/code/mywebclient
+
+spring.security.oauth2.client.provider.mywebclient.authorization-uri = http://localhost:8180/realms/evk-springmvc-realm/protocol/openid-connect/auth
+spring.security.oauth2.client.provider.mywebclient.token-uri = http://localhost:8180/realms/evk-springmvc-realm/protocol/openid-connect/token
+spring.security.oauth2.client.provider.mywebclient.jwk-set-uri=http://localhost:8180/realms/evk-springmvc-realm/protocol/openid-connect/certs
+spring.security.oauth2.client.provider.mywebclient.user-info-uri = http://localhost:8180/realms/evk-springmvc-realm/protocol/openid-connect/userinfo
+spring.security.oauth2.client.provider.mywebclient.user-name-attribute = preferred_username
